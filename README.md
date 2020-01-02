@@ -8,4 +8,4 @@ A demo for iOS Action Extension, including
 - 1 Hosting App with the App Extension
 - 1 Containing App communicating with the App Extension
 
-The Containing Application will send a string to the App Extension; the App Extension can update the input string and return it to the Containing App.
+The Containing Application can send a string to the App Extension; the App Extension will update the input string and return it to the Containing App.
