@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  payme
+//  vendor
 //
 //  Created by Damon Yuan on 31/12/2019.
 //  Copyright © 2019 Damon Yuan. All rights reserved.

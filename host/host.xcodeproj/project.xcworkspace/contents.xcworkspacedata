@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/damon/Desktop/action-extension-demo/payme/host.xcodeproj">
+      location = "self:/Users/damon/Desktop/action-extension-demo/host/host.xcodeproj">
    </FileRef>
 </Workspace>
