@@ -29,7 +29,11 @@ class ViewController: UIViewController {
             applicationActivities: nil
         )
         vc.completionWithItemsHandler = { (activityType, completed, returnedItems, error) in
-            guard (activityType?.rawValue == "com.damonyuan.host.action") else {
+            if (activityType == nil) {
+                NSLog("action cancelled")
+                return
+            }
+            guard (activityType?.rawValue == "com.damonyuan.containing.extension") else {
                 NSLog("something went wrong")
                 return
             }
@@ -60,7 +64,30 @@ class ViewController: UIViewController {
             
         }
         
-        self.present(vc, animated: true, completion: nil)
+        self.present(vc, animated: true, completion: {
+            let cells : [UICollectionViewCell] = self.getSubviewsOf(view: vc.view)
+            if (cells.count == 0) {
+                NSLog("No Extension available!")
+                // Caused either by App not installed or App version not meet the minimum requirement.
+                // Here we can redirect the user to Apple Store/website to upgrade/download the App.
+            } else {
+                NSLog("Extension found!")
+            }
+        })
+    }
+    
+    private func getSubviewsOf<T : UIView>(view:UIView) -> [T] {
+        var subviews = [T]()
+
+        for subview in view.subviews {
+            subviews += getSubviewsOf(view: subview) as [T]
+
+            if let subview = subview as? T {
+                subviews.append(subview)
+            }
+        }
+
+        return subviews
     }
 
 }
